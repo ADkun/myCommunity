@@ -1,4 +1,6 @@
-
+community:
+  path:
+    domain: http://localhost:8081
 ###ThymeLeaf配置
 spring:
   task:

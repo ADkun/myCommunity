@@ -5,13 +5,39 @@
 <mapper namespace="com.adkun.myCommunity.dao.UserMapper">
 
     <sql id="selectFields">
-        id, username, password, salt, email, type, status, activation_code, header_url, create_time
+        id
+        , username, password, salt, email, type, status, activation_code, header_url, create_time
     </sql>
 
+    <sql id="insertFields">
+        username
+        , password, salt, email, type, status, activation_code, header_url, create_time
+    </sql>
+
+    <insert id="insertUser" parameterType="com.adkun.myCommunity.entity.User" keyProperty="id">
+        insert into user (<include refid="insertFields"></include> )
+        values (#{username}, #{password}, #{salt}, #{email}, #{type}, #{status}, #{activationCode}, #{headerUrl},
+        #{createTime})
+    </insert>
+
     <select id="selectById" resultType="com.adkun.myCommunity.entity.User">
-        select <include refid="selectFields"></include>
+        select
+        <include refid="selectFields"></include>
         from user
         where id = #{userId}
+        limit 1
+    </select>
+    <select id="selectByUsername" resultType="com.adkun.myCommunity.entity.User">
+        select
+        <include refid="selectFields"></include>
+        from user
+        where username = #{username}
+        limit 1
+    </select>
+    <select id="selectByEmail" resultType="com.adkun.myCommunity.entity.User">
+        select <include refid="selectFields"></include>
+        from user
+        where email = #{email}
         limit 1
     </select>
 </mapper>
