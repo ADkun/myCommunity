@@ -1,6 +1,24 @@
 
-###ThymeLeafÅäÖÃ
+###ThymeLeafé…ç½®
 spring:
+  task:
+    execution:
+      pool:
+        core-size: 5
+        max-size: 15
+        queue-capacity: 100
+  mail:
+    host: smtp.sina.com
+    username: adkun2021@sina.com
+    password: b2b1bafd97302230
+    port: 465
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+    protocol: smtps
+
   datasource:
     url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&useSSL=false&serverTimeZone=Hongkong
     username: root
@@ -12,11 +30,11 @@ spring:
       minimum-idle: 5
     type: com.zaxxer.hikari.HikariDataSource
   thymeleaf:
-    #prefix£ºÖ¸¶¨Ä£°åËùÔÚµÄÄ¿Â¼
+    #prefixï¼šæŒ‡å®šæ¨¡æ¿æ‰€åœ¨çš„ç›®å½•
     prefix: classpath:/templates/
-    #check-tempate-location: ¼ì²éÄ£°åÂ·¾¶ÊÇ·ñ´æÔÚ
+    #check-tempate-location: æ£€æŸ¥æ¨¡æ¿è·¯å¾„æ˜¯å¦å­˜åœ¨
     check-template-location: true
-    #cache: ÊÇ·ñ»º´æ£¬¿ª·¢Ä£Ê½ÏÂÉèÖÃÎªfalse£¬±ÜÃâ¸ÄÁËÄ£°å»¹ÒªÖØÆô·şÎñÆ÷£¬ÏßÉÏÉèÖÃÎªtrue£¬¿ÉÒÔÌá¸ßĞÔÄÜ¡£
+    #cache: æ˜¯å¦ç¼“å­˜ï¼Œå¼€å‘æ¨¡å¼ä¸‹è®¾ç½®ä¸ºfalseï¼Œé¿å…æ”¹äº†æ¨¡æ¿è¿˜è¦é‡å¯æœåŠ¡å™¨ï¼Œçº¿ä¸Šè®¾ç½®ä¸ºtrueï¼Œå¯ä»¥æé«˜æ€§èƒ½ã€‚
     cache: false
     suffix:  .html
     encoding: UTF-8
