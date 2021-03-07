@@ -115,7 +115,8 @@ public class UserServiceImpl implements CommunityConstants, UserService {
         // 使用thymeleaf生成页面
         Context context = new Context();
         context.setVariable("email", u.getEmail());
-        String url = DOMAIN + CONTEXT_PATH + "/activation?userId=" + u.getId() + "&activationCode=" + u.getActivationCode();
+        // Restful风格，/activation/{userId}/{activationCode}
+        String url = DOMAIN + CONTEXT_PATH + "/activation/" + u.getId() + "/" + u.getActivationCode();
         context.setVariable("url", url);
         String content = templateEngine.process("/mail/activation", context);
 
