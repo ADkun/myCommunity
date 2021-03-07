@@ -2,6 +2,7 @@ package com.adkun.myCommunity.controller;
 
 import com.adkun.myCommunity.entity.User;
 import com.adkun.myCommunity.service.UserService;
+import com.adkun.myCommunity.service.impl.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,12 +10,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Map;
 
+/**
+ * @author adkun
+ * 注册视图
+ */
 @Controller
 public class RegisterController {
 
     private final UserService userService;
 
-    public RegisterController(UserService userService) {
+    public RegisterController(UserServiceImpl userService) {
         this.userService = userService;
     }
 

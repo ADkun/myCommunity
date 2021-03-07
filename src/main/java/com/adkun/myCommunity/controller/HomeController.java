@@ -5,6 +5,8 @@ import com.adkun.myCommunity.entity.Page;
 import com.adkun.myCommunity.entity.User;
 import com.adkun.myCommunity.service.DiscussPostService;
 import com.adkun.myCommunity.service.UserService;
+import com.adkun.myCommunity.service.impl.DiscussPostServiceImpl;
+import com.adkun.myCommunity.service.impl.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +20,9 @@ import java.util.Map;
 public class HomeController {
 
     private final DiscussPostService postService;
-
     private final UserService userService;
 
-    public HomeController(DiscussPostService postService, UserService userService) {
+    public HomeController(DiscussPostServiceImpl postService, UserServiceImpl userService) {
         this.postService = postService;
         this.userService = userService;
     }

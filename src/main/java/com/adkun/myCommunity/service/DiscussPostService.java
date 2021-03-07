@@ -1,23 +1,10 @@
 package com.adkun.myCommunity.service;
 
-import com.adkun.myCommunity.dao.DiscussPostMapper;
 import com.adkun.myCommunity.entity.DiscussPost;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author adkun
- */
-@Service
-public class DiscussPostService {
-
-    private final DiscussPostMapper postMapper;
-
-    public DiscussPostService(DiscussPostMapper discussPostMapper) {
-        postMapper = discussPostMapper;
-    }
+public interface DiscussPostService {
 
     /**
      * 根据用户id找到对应帖子
@@ -27,11 +14,13 @@ public class DiscussPostService {
      * @param limit 每页限制
      * @return 帖子列表
      */
-    public List<DiscussPost> findDiscussPosts(int userId, int offset, int limit) {
-        return postMapper.selectDiscussPosts(userId, offset, limit);
-    }
+    List<DiscussPost> findDiscussPosts(int userId, int offset, int limit);
 
-    public int getDiscussPostsRows(int userId) {
-        return postMapper.selectDiscussPostsRows(userId);
-    }
+    /**
+     * 根据用户id找到对应帖子
+     * 返回数量
+     * @param userId 用户id(0为所有帖子）
+     * @return 帖子数量
+     */
+    int getDiscussPostsRows(int userId);
 }
